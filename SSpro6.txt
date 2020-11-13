@@ -1,5 +1,6 @@
 // Callen Dye
 // XOR Cipher
+// This program takes in a key, in this instance 'world', and encrypts the data until it is decrypted by the same key
 import java.lang.String;
 import java.lang.Integer;
 import java.util.Arrays;
