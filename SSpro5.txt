@@ -1,11 +1,7 @@
 // Callen Dye
 // Program 5 starter code
 // Starter Code By: James Cain (jcain@sbuniv.edu)
-// This is the required starter code for this assignment.
-// Correct the race condition problem(s) in the Java code
-// provided. Correct any other problems in the code and make sure
-// your code cannot be crashed by any particular choices of user
-// input, including obviously erroneous input.
+// Example of managing a bank account and implementation of locks to sychronize data
 import java.text.*;
 public class RetirementAccount {
 private double Balance;
