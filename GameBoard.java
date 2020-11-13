@@ -1,5 +1,6 @@
 package program5;
 //Callen Dye
+//This is the Game board that is a part of the battleship program
 public class GameBoard 
 {
 	 
