@@ -1,0 +1,91 @@
+
+//Callen Dye
+//CounterSort algorithm
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int MaxValue = 10;
+
+int counterSort(int* data, int length);
+
+void main(int argc,char *argv[]){
+  int iterations = atoi(argv[1]);//command line input for numbers of iterations.  Use of 'atoi' function to prevent program crashing
+  printf("This is the number of arrays that are being sorted: %d\n", iterations);
+  int numSort=0; //number of arrays sorts, should be same number as cmd line input
+
+  int i,j; //loop variables
+
+  for(i=1; i<=iterations;i++){//for loop 1
+  int arr = rand() % 100;
+
+  int *array = (int*)malloc(arr * sizeof(int)); //allocate memory for array
+
+    for(j=0;j<arr;j++){ //set intial array to 0
+      array[j]=0;
+    }
+    for(j=0;j<arr;j++){ //set the maximum possible random value to be less than 10 and populate the array
+      array[j] =(int)rand() % MaxValue;
+
+    }
+    printf("Unsorted array: "); //print the unsorted array to show the numbers before being sorted
+    for(j=0;j<arr;j++){
+      printf("%d", array[j]);
+    }
+
+    printf("\n");
+    counterSort(array, arr); //sort the arrays
+    printf("Sorted array: ");
+    for(j=0;j<arr;j++){
+    printf("%d", array[j]);
+    }
+    printf("\n");
+
+    int sorted = 1;  //check to see if numbers are in sorted positions
+    for(j=1;j<arr;j++){
+      if(array[j] < array[j-1]){
+        sorted =0;
+        break;
+        }
+      }
+    if(sorted){
+      numSort++;
+    }
+    free(array); //deallocate memory
+  }//for loop1
+printf("Number of arrays sorted: %d\n", numSort);
+}//main
+int counterSort(int *data, int length){
+  int i;//loop variables
+  int k;
+  int largestValue =-1; //establish the largest value within the array, which is set 9 to be largest possible value
+  for(i=0;i< length; i++){
+    if(data[i] > largestValue){
+      largestValue = data[i];
+    }
+  }
+
+  largestValue+=1;
+
+  int counterArray[largestValue]; //set the sorted array to 0 before replacing them with sorted values
+  for(i=0;i<largestValue;i++){
+    counterArray[i] = 0;
+  }
+  for(i=0;i<length;i++){  //increment counterArray for each value time a certain value that appears
+    counterArray[data[i]]++;
+  }
+
+  k=0;//reset loop variables
+  i=0;
+  while(i<length){//while their are sill values to be inputted, these while loops input the correct amount of sorted ints into the sorted array
+    while(counterArray[k]> 0 && k< largestValue){//moves to next array index
+      data[i] = k;
+      counterArray[k]--;
+      i++;
+    }
+  k++;
+  }
+  return 1;//return true
+}
+
+                                                                                                                           

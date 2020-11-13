@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+int Atoi(const char *str, int *res)
+{
+    if (*str == '\0'){
+       return 0;
+    }
+    int val = 0;
+    int sign = 1;
+    int i = 0;
+    int lcv = 0;
+    int neg = 1;
+    if (str[0] == '-') // check to see if number is negative.
+    {                  // if number is negative, change sign to -1
+        sign = -1;     // and multiply result by sign.
+        i++;  			   // update index of first digit
+    }
+    for(neg = 1; str[neg] != '\0'; neg++){
+      if(str[neg] == '-'){
+       printf("Error. You cannot put minus symbol in the middle of an int.\nreset to: ");
+        return -1;
+        }
+    }
+    for (lcv = i; str[lcv] != '\0'; lcv++)
+    {
+          // get the int value of the string
+                              //then test to see if there are errors in the string
+      if((str[lcv] >= 'a' && str[lcv] <= 'z') || (str[lcv] >= 'A' && str[lcv] <='Z')){
+        printf ("Error. This is not an integer.\nreset to: ");
+        return -2;
+      }
+      if(str[lcv] == '.'){
+        printf ("Error. Cannot contain a decimal point.\nreset to: ");
+        return -3;
+      }
+      if(str[lcv] == ' '){
+        printf ("Error. Cannot contain spaces.\nreset to: ");
+        return -4;
+      }
+      if(lcv >= 10){
+        printf("Error. Int is too big. \nresst to: ");
+        return -5;
+      }
+    }
+    *res = atoi(str);
+    return 0;
+}
+int main()
+{
+    char str[] = "12";
+    int res = -42;
+    int total = Atoi(str, &res);
+    printf("%d %d\n", total, res);
+    return 0;
+}

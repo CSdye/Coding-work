@@ -1,0 +1,74 @@
+//Callen Dye
+//CounterSort algorithm that reads from a file
+//Written in C Lang
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void main(int argc,char *argv[]){
+  int iterations = atoi(argv[1]);//command line input for numbers of iterations.  Use of 'atoi' function to prevent program crashing
+  if(argv[1] == NULL){
+    printf("There is no cmd line argument.");
+    exit(1);
+  }
+  int j; //loop variables
+  printf("Checkpoint 1\n");fflush(stdout);
+  FILE *file;
+  file = fopen("file.txt","w");
+  if(file==NULL){
+  printf("Error. Cannot open file");
+  exit(1);
+  }
+  printf("Checkpoint 2\n");fflush(stdout);
+  int lcv = 0;
+  int largestValue = -1; //establish the largest value within the array, which is set 9 to be largest possible value
+  int temp = 0;
+  int hold = 0;
+  int MaxValue = 10;// set maximum possible values of random ints to 9
+  int MAX = 1000;//size of data set
+
+  while(lcv < MAX){// open file to and fill with random ints
+  temp = rand() % MaxValue;
+  if(temp > largestValue){
+  largestValue = temp;
+  }
+  hold = fprintf(file, "%d\n", temp);
+  lcv++;
+  }
+  fclose(file);
+
+  printf("Checkpoint 3\n");fflush(stdout);
+  largestValue+=1;
+  int array[largestValue];
+    for(j = 0; j < largestValue; j++){// create array to hold sorted data and set all intial values to 0
+      array[j] = 0;
+    }
+printf("Checkpoint 4\n");fflush(stdout);
+
+  file = fopen("file.txt","r");
+  int num = 0;
+  int scan = 0;
+printf("Checkpoint 5\n");fflush(stdout);
+  while(1){// read the data from the file into the array to sort
+  if(num == EOF){
+    break;
+  }
+  num = fscanf(file, "%d", &scan);
+  array[num]++;
+  }
+  fclose(file);
+
+  int lcv2=0;
+  int lcv3=0;
+  FILE * output;
+printf("Checkpoint 6\n");fflush(stdout);
+  output = fopen("res.txt", "w");
+  for(lcv2=0;lcv2<MAX;lcv2++){// print to output file the sorted array
+    for(lcv3=1;lcv3<MAX;lcv3++){
+      fprintf(output, "%d",lcv2);
+    }
+  }
+}//main
+
+
+

@@ -1,0 +1,69 @@
+// Callen Dye
+// Program 5 starter code
+// Starter Code By: James Cain (jcain@sbuniv.edu)
+// This is the required starter code for this assignment.
+// Correct the race condition problem(s) in the Java code
+// provided. Correct any other problems in the code and make sure
+// your code cannot be crashed by any particular choices of user
+// input, including obviously erroneous input.
+import java.text.*;
+public class RetirementAccount {
+private double Balance;
+private double InterestRate;
+private Object lock1 = new Object();
+private Object lock2 = new Object();
+
+public RetirementAccount() {
+  Balance =  0.0;
+  InterestRate = 0.0;
+  } // public RetirementAccount () {...
+public double GetBalance () {
+    return Balance;
+  } // public float GetBalance () {...
+
+public double GetRate () {
+  return InterestRate;
+  }
+
+public void Credit (double Amount) {
+  synchronized(lock1){
+  Balance = Balance + Amount;
+  }
+  } // public void Credit (float Amount) {...
+
+public void ApplyFee (double Amount){
+  synchronized(lock1){
+  Balance = Balance - Amount;
+  }
+  } // public void ApplyFee (float Amount) {...
+
+public void ApplyInterest () {
+  synchronized(lock2){
+  Balance = Balance + (Balance * InterestRate);
+  }
+  } // public void ApplyInterest () {...
+
+public void SetRate (double Rate) {
+  synchronized(lock2){
+  InterestRate = Rate;
+  }
+  } // public void SetRate (float Rate) {...
+
+public static void main(String[]args){
+  RetirementAccount first = new RetirementAccount();
+  System.out.println(first.GetBalance());
+  first.Credit(200.25);
+  System.out.println(first.GetBalance());
+  first.ApplyFee(50);
+  System.out.println(first.GetBalance());
+
+  first.SetRate(0.1);
+  first.ApplyInterest();
+  System.out.println(first.GetBalance());
+
+}
+
+
+} // public class RetirementAccount {...
+
+
