@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class programmingAssignment1
+{
+
+	public static void main(String[] args)
+	{
+		//Callen Dye
+		
+		// Squares of Integers 
+	System.out.println(1*1);
+	System.out.println(2*2);
+	System.out.println(3*3);
+	System.out.println(4*4);
+	System.out.println(5*5);
+	
+	// Weight Conversion
+	double KGS_TO_LBS = 2.20462;
+	System.out.println("10 kilograms converted to pounds is " + 10 * KGS_TO_LBS + " lbs.");
+	System.out.println("50 kilograms converted to pounds is " + 50 * KGS_TO_LBS + " lbs.");
+	System.out.println("100 kilograms converted to pounds is " + 100 * KGS_TO_LBS + " lbs.");
+	
+	// Binary converted to Base 10
+	Scanner scan = new Scanner (System.in); 
+	System.out.println("Enter left most digit");
+	int num1st = scan.nextInt();
+	System.out.println("Enter the next digit");
+	int num2nd = scan.nextInt();
+	System.out.println("Enter the next digit");
+	int num3rd = scan.nextInt();
+	System.out.println("Enter the last digit");
+	int num4th = scan.nextInt();
+	
+	System.out.println(num1st * 8 + (num2nd * 4) + (num3rd * 2) + (num4th * 1));
+	// Name: Callen Dye 
+	// Assignment: Programming Assignment #1,#2,#3.
+	// Due Date: 9/7/2018
+	// Task: Converting 4-digit binary numbers to base 10.
+	// Test 1: I inputed the binary number 1000 so i should get the base 10 number 8.
+	// Test 2: I inputed the binary number 1111 so i should get the base 10 number 15.
+	// Test 3: I inputed the binary number 1010 so i should get the base 10 number 10.
+	// Test Results: All outputs were successful.
+	
+			}
+
+}
