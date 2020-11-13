@@ -1,15 +1,7 @@
 //Callen Dye
 // Program 4 starter code
 // Starter Code By: James Cain (jcain@sbuniv.edu)
-// This is the required starter code for this assignment.
-// Correct the buffer overflow problem(s) in the Java code
-// provided. Correct any other problems in the code and make
-// sure your code cannot be crashed by any particular choices of
-// user input, including obviously erroneous input.
-// Do not simply replace all of the character arrays with Java
-// Strings. Furthermore, you are not permitted to use Java
-// Strings anywhere in this assignment.
-// Create a main method to test your code.
+
 public class buffer{
 
 public static void main(String[]args){
