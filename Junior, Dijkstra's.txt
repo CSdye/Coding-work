@@ -2,9 +2,7 @@
  ============================================================================
  Name        : Dijk.c
  Author      : Callen Dye
- Version     :
- Copyright   : Your copyright notice
- Description : Dijkstra's Algorithm implemented in code
+ Description : Dijkstra's Algorithm implemented in code, written in C
  ============================================================================
  */
 
