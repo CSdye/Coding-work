@@ -1,5 +1,6 @@
 //Callen Dye
 //This program is a personally written 'atoi' function
+//Written in C
 #include <stdio.h>
 #include <stdlib.h>
 int Atoi(const char *str, int *res)
