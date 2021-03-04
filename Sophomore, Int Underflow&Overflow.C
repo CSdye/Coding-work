@@ -1,5 +1,5 @@
 // Callen Dye
-// THis program displays the adding of integers and reports int overflow/underflow
+// This program displays the adding of integers and reports int overflow/underflow
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
