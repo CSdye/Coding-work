@@ -1,13 +1,13 @@
+//Callen Dye
+//This is my very first personally written program
+//The program demonstrates some basic math/computing functions
 import java.util.Scanner;
-
 public class programmingAssignment1
 {
 
 	public static void main(String[] args)
-	{
-		//Callen Dye
-		
-		// Squares of Integers 
+	{		
+	// Squares of Integers 
 	System.out.println(1*1);
 	System.out.println(2*2);
 	System.out.println(3*3);
